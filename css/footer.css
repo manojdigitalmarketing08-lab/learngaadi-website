@@ -194,3 +194,13 @@
   .footer-bottom-inner{ padding: 20px 20px; }
   .footer-copy{ padding: 14px 20px 20px; }
 }
+
+.footer-links a{
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+}
+
+.footer-col h4{
+  font-size: larger;
+}
+

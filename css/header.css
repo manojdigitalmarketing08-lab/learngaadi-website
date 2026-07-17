@@ -351,3 +351,100 @@ nav ul li a{
   object-fit: contain;
   display: block;
 }
+
+
+/* ================= HAMBURGER TOGGLE ================= */
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-toggle .bar{
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.nav-toggle.is-active .bar:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-active .bar:nth-child(2){ opacity: 0; }
+.nav-toggle.is-active .bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-only-cta{ display: none; }
+
+@media (max-width: 768px){
+  .cta-bar{
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle{ display: flex; }
+
+  .cta-call-btn{ display: none; }
+
+  .main-nav{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--dark, #151826);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+    max-height: 70vh;
+    overflow-y: auto;
+    z-index: 50;
+  }
+
+  .main-nav.is-open{ display: flex; }
+
+  .main-nav li{
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .main-nav a{
+    width: 100%;
+    padding: 16px clamp(16px, 4vw, 56px);
+    justify-content: space-between;
+  }
+  .main-nav a::after{ display: none; }
+
+  .has-dropdown i{ transition: transform .2s ease; }
+  .has-dropdown.is-expanded i{ transform: rotate(180deg); }
+
+  .mobile-only-cta{
+    display: block;
+    padding: 14px clamp(16px, 4vw, 56px) 18px;
+  }
+  .mobile-only-cta a{
+    display: block;
+    background: var(--blue, #1677ff);
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 14px;
+  }
+
+  body.nav-open{ overflow: hidden; }
+}
+
+@media (max-width: 480px){
+  .top-header{ padding: 14px 16px; }
+  .contact{ display: none; }
+}
