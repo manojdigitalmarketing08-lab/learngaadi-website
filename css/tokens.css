@@ -1,0 +1,71 @@
+/*====================================
+GLOBAL DESIGN TOKENS
+====================================*/
+
+:root{
+
+    /* Colors */
+    --blue: #3b6fed;
+    --blue-light: #6f93ff;
+
+    --navy: #173a8a;
+    --dark: #12142a;
+
+    --white: #ffffff;
+    --bg-page: #f2f3f7;
+    --bg-panel: #12142a;
+    --bg-card: #1b1e38;
+
+    --muted: #6b7189;
+    --border: #e7e9f2;
+    --rule: rgba(255,255,255,.08);
+    --tint: #eef2ff;
+
+    /* Radius */
+    --radius-lg: 22px;
+    --radius-md: 14px;
+
+    /* Fonts */
+    --font-display: "Sora","Poppins",sans-serif;
+    --font-body: "Inter","Poppins",sans-serif;
+}
+
+/*====================================
+GLOBAL RESET
+====================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+    font-family:var(--font-body);
+    color:var(--dark);
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+

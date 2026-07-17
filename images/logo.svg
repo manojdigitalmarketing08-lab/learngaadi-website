@@ -1,0 +1,8 @@
+<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="120" rx="24" fill="#f5f9ff"/>
+  <circle cx="54" cy="60" r="30" fill="#1877F2"/>
+  <path d="M40 60h28" stroke="white" stroke-width="8" stroke-linecap="round"/>
+  <path d="M54 42l18 18-18 18" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="102" y="58" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Cdrive</text>
+  <text x="102" y="86" font-family="Poppins, Arial, sans-serif" font-size="16" fill="#6b7280">Driving School</text>
+</svg>
