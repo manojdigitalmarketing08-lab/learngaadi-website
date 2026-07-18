@@ -2058,7 +2058,7 @@ TESTIMONIAL NAVIGATION
     overflow:hidden;
     position:relative;
 
-    background-image:url("../images/hero-full.png");
+    background-image:url("../images/hero-full.webp");
     background-size:auto 100%;
     background-position:right -100px center;
     background-repeat:no-repeat;
@@ -2503,4 +2503,8 @@ TESTIMONIAL NAVIGATION
 }
 .cta-btn-secondary:hover{
   background: #0e63d6;
+}
+
+.content .tag {
+  color:var(--blue-light) ;
 }
