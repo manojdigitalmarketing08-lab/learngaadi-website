@@ -347,3 +347,141 @@
   }
 
 }
+
+/* ================= SERVICES DROPDOWN ================= */
+.has-dropdown{ position: relative; }
+
+.dropdown-toggle-checkbox{ display: none; }
+
+.dropdown-caret{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fff;
+}
+.dropdown-caret i{
+  font-size: 9px;
+  opacity: 0.8;
+  transition: transform .2s ease;
+}
+
+.dropdown-menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Desktop: hover / focus opens the panel ---- */
+@media (min-width: 769px){
+  .has-dropdown{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dropdown-caret{ cursor: pointer; pointer-events: none; }
+
+  .dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 14px;
+    min-width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 20px 45px rgba(10,12,30,0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    z-index: 1000;
+  }
+
+  .has-dropdown:hover .dropdown-menu,
+  .has-dropdown:focus-within .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .has-dropdown:hover .dropdown-caret i,
+  .has-dropdown:focus-within .dropdown-caret i{
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu a{
+    display: block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--dark, #14162c);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13.5px;
+    text-transform: none;
+    letter-spacing: normal;
+    white-space: nowrap;
+  }
+  .dropdown-menu a::after{ display: none; }
+  .dropdown-menu a:hover{ background: var(--tint, #eef2ff); color: var(--blue); }
+}
+
+/* ---- Mobile: tap the caret to expand (no JS, checkbox toggle) ---- */
+@media (max-width: 768px){
+  .dropdown-caret{
+    position: absolute;
+    top: 6px;
+    right: clamp(16px, 4vw, 56px);
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+  }
+
+  .dropdown-toggle-checkbox:checked ~ .dropdown-caret i{
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu{
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0,0,0,0.15);
+    transition: max-height .3s ease;
+  }
+  .dropdown-toggle-checkbox:checked ~ .dropdown-menu{
+    max-height: 600px;
+  }
+
+  .dropdown-menu a{
+    width: 100%;
+    padding: 12px clamp(28px, 8vw, 64px);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgba(255,255,255,0.85);
+  }
+  .dropdown-menu li{ border-top: 1px solid rgba(255,255,255,0.08); }
+  .dropdown-menu a::after{ display: none; }
+}
+
+/* ================= SMALL / NARROW DEVICES (iPhone SE and up) ================= */
+/* .logo img was a fixed 350px with no responsive downscale — overflowed every
+   phone width below 992px. Scale it down progressively instead. */
+@media (max-width: 992px){
+  .logo img{ width: 240px; }
+}
+@media (max-width: 480px){
+  .logo img{ width: 190px; }
+}
+@media (max-width: 375px){
+  .logo img{ width: 160px; }
+  .top-header{ padding: 12px 14px; }
+}
+@media (max-width: 320px){
+  .logo img{ width: 140px; }
+  .top-header{ padding: 10px 12px; gap: 12px; }
+  .cta-bar{ padding: 10px 14px; }
+  .main-nav a{ font-size: 13px; }
+  .mobile-only-cta a{ font-size: 13px; padding: 12px; }
+  .dropdown-menu a{ padding: 10px clamp(22px, 8vw, 32px); font-size: 13px; }
+}

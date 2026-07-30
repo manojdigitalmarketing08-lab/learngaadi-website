@@ -650,3 +650,129 @@
   .svc2-highlight-chip{ font-size: 13px; padding: 12px 14px; }
 }
 
+/* =========================================================
+   REDESIGN — Feature Cards / Instructor / Process
+   Prefixed "svc3-" — new layouts for automatic-training.html
+   (replaces the old feature-rows / instructor / timeline v2 blocks).
+   ========================================================= */
+.svc3-features, .svc3-instructor, .svc3-process{ font-family: var(--s2-font-body); box-sizing: border-box; }
+.svc3-features *, .svc3-instructor *, .svc3-process *{ box-sizing: border-box; }
+
+/* -- Feature Cards -- */
+.svc3-features{ background: #fff; padding: 84px clamp(16px, 4vw, 60px); }
+.svc3-features-inner{ max-width: 1160px; margin: 0 auto; }
+.svc3-features-head{ max-width: 640px; margin: 0 0 44px; }
+.svc3-features h2{
+  font-family: var(--s2-font-display); font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 38px); color: var(--s2-dark); margin: 0;
+}
+.svc3-feature-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.svc3-feature-card{
+  background: var(--s2-bg); border: 1px solid var(--s2-border); border-radius: 20px;
+  padding: 30px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.svc3-feature-card:hover{
+  transform: translateY(-4px); border-color: transparent;
+  box-shadow: 0 20px 40px -18px rgba(20,22,44,.18);
+}
+.svc3-feature-icon{
+  width: 52px; height: 52px; border-radius: 14px; background: var(--s2-blue); color: #fff;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+}
+.svc3-feature-icon svg{ width: 26px; height: 26px; }
+.svc3-feature-card h3{ font-family: var(--s2-font-display); font-weight: 700; font-size: 17.5px; color: var(--s2-dark); margin: 0 0 8px; }
+.svc3-feature-card p{ font-size: 14.5px; line-height: 1.7; color: var(--s2-muted); margin: 0; }
+@media (max-width: 720px){ .svc3-feature-grid{ grid-template-columns: 1fr; } }
+
+/* -- Instructor Spotlight -- */
+.svc3-instructor{ background: var(--s2-dark); padding: 84px clamp(16px, 4vw, 60px); }
+.svc3-instructor-inner{
+  max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1fr;
+  gap: clamp(30px, 5vw, 70px); align-items: center;
+}
+.svc3-instructor-media{ position: relative; }
+.svc3-instructor-frame{
+  aspect-ratio: 4/5; border-radius: 24px; background: linear-gradient(160deg, var(--s2-blue), var(--s2-navy));
+  display: flex; align-items: center; justify-content: center; color: #fff; padding: 40px;
+}
+.svc3-instructor-frame svg{ width: 46%; height: 46%; }
+.svc3-instructor-badge{
+  position: absolute; right: -18px; bottom: 22px; background: #fff; border-radius: 16px;
+  padding: 16px 20px; box-shadow: 0 20px 40px -14px rgba(0,0,0,.35); text-align: center; min-width: 92px;
+}
+.svc3-instructor-badge strong{ display: block; font-family: var(--s2-font-display); font-weight: 800; font-size: 22px; color: var(--s2-dark); }
+.svc3-instructor-badge span{ display: block; font-size: 11px; font-weight: 600; color: var(--s2-muted); margin-top: 2px; }
+.svc3-instructor-content .svc2-eyebrow{ color: var(--s2-blue-light); }
+.svc3-instructor-content .svc2-eyebrow span{ color: rgba(255,255,255,.35); }
+.svc3-instructor-content h2{
+  font-family: var(--s2-font-display); font-weight: 800; color: #fff;
+  font-size: clamp(24px, 3.2vw, 34px); margin: 0 0 16px; line-height: 1.2;
+}
+.svc3-instructor-content p{ font-size: 15.5px; line-height: 1.75; color: rgba(255,255,255,.65); margin: 0 0 28px; }
+.svc3-instructor-stats{ display: flex; gap: 30px; flex-wrap: wrap; }
+.svc3-instructor-stats div{ display: flex; align-items: center; gap: 10px; }
+.svc3-instructor-stats svg{ width: 20px; height: 20px; color: var(--s2-blue-light); flex-shrink: 0; }
+.svc3-instructor-stats span{ font-size: 13.5px; font-weight: 600; color: #fff; }
+
+/* -- Process (horizontal steps) -- */
+.svc3-process{ background: #fff; padding: 84px clamp(16px, 4vw, 60px); }
+.svc3-process-inner{ max-width: 1160px; margin: 0 auto; }
+.svc3-process h2{
+  font-family: var(--s2-font-display); font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 38px); color: var(--s2-dark); margin: 0 0 44px;
+}
+.svc3-process-track{
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; position: relative;
+}
+.svc3-process-track::before{
+  content: ""; position: absolute; top: 22px; left: 44px; right: 44px; height: 2px;
+  background: var(--s2-border); z-index: 0;
+}
+.svc3-process-step{ position: relative; z-index: 1; }
+.svc3-process-num{
+  width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 2px solid var(--s2-blue);
+  color: var(--s2-blue); font-family: var(--s2-font-display); font-weight: 800; font-size: 16px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+}
+.svc3-process-step h3{ font-family: var(--s2-font-display); font-weight: 700; font-size: 15.5px; color: var(--s2-dark); margin: 0 0 8px; }
+.svc3-process-step p{ font-size: 13.5px; line-height: 1.6; color: var(--s2-muted); margin: 0; }
+@media (max-width: 900px){
+  .svc3-process-track{ grid-template-columns: repeat(2, 1fr); gap: 30px 18px; }
+  .svc3-process-track::before{ display: none; }
+}
+@media (max-width: 480px){
+  .svc3-process-track{ grid-template-columns: 1fr; }
+}
+
+/* -- Services (With Licence / Training Only) -- */
+.svc3-options, .svc3-options *{ font-family: var(--s2-font-body); box-sizing: border-box; }
+.svc3-options{ background: var(--s2-bg); padding: 84px clamp(16px, 4vw, 60px); }
+.svc3-options-inner{ max-width: 1000px; margin: 0 auto; }
+.svc3-options-head{ max-width: 640px; margin: 0 0 44px; }
+.svc3-options h2{
+  font-family: var(--s2-font-display); font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 38px); color: var(--s2-dark); margin: 0;
+}
+.svc3-options-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.svc3-option-card{
+  background: #fff; border: 1.5px solid var(--s2-border); border-radius: 22px;
+  padding: 34px 30px; position: relative; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.svc3-option-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 40px -18px rgba(20,22,44,.18); }
+.svc3-option-card.is-featured{ border-color: var(--s2-blue); }
+.svc3-option-tag{
+  position: absolute; top: -13px; right: 26px; background: var(--s2-blue); color: #fff;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .04em; padding: 6px 14px; border-radius: 999px;
+}
+.svc3-option-icon{
+  width: 54px; height: 54px; border-radius: 16px; background: var(--s2-tint); color: var(--s2-blue);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+}
+.svc3-option-icon svg{ width: 27px; height: 27px; }
+.svc3-option-card h3{ font-family: var(--s2-font-display); font-weight: 700; font-size: 19px; color: var(--s2-dark); margin: 0 0 8px; }
+.svc3-option-card > p{ font-size: 14.5px; line-height: 1.7; color: var(--s2-muted); margin: 0 0 22px; }
+.svc3-option-list{ list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.svc3-option-list li{ display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--s2-dark); font-weight: 500; }
+.svc3-option-list svg{ width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--s2-blue); }
+@media (max-width: 720px){ .svc3-options-grid{ grid-template-columns: 1fr; } }
+
