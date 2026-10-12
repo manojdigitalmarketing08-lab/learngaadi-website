@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Send index.html (or /index) requests to the root
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index(\.html)?[\ ?] [NC]
+RewriteRule ^index(\.html)?$ / [R=301,L]
+
+# Send any direct .html request to its clean URL (e.g. /page.html -> /page)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.\s]+)\.html[\ ?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Internally serve the matching .html file for a clean URL, without redirecting
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.]+)$ $1.html [NC,L]
