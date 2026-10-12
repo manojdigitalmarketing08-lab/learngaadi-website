@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Learn Gaadi Driving School</title>
+
+<meta name="description" content="Thank you for your enquiry. The Learn Gaadi team will contact you shortly about your driving lessons.">
+<meta name="author" content="Learn Gaadi">
+
+<!-- thank-you page: keep out of search results -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="canonical" href="https://learngaadi.in/thank-you" />
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/services.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/thank-you.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1KJJ16MQTX"></script>
+<script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-1KJJ16MQTX');
+</script>
+
+</head>
+<body>
+
+<!-- header -->
+<div id="header"></div>
+
+<section class="ty">
+  <div class="ty-card">
+
+    <div class="ty-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <p class="svc-eyebrow"><span>&gt;&gt;&gt;</span> ENQUIRY RECEIVED <span>&lt;&lt;&lt;</span></p>
+    <h1>Thank You! We've Got Your Details</h1>
+    <p class="ty-lead">Our team will call or message you shortly to plan your driving lessons. Prefer to talk right now? Message or call us below.</p>
+
+    <div class="ty-actions">
+      <a id="tyWhatsapp" href="https://wa.me/918296161555" target="_blank" rel="noopener" class="svc-btn-primary">Chat on WhatsApp</a>
+      <a href="tel:+918296161555" class="svc-btn-secondary">Call +91 8296161555</a>
+    </div>
+
+    <ol class="ty-steps">
+      <li><span>1</span><div><h2>We review your enquiry</h2><p>We check the course and location you asked about.</p></div></li>
+      <li><span>2</span><div><h2>We get in touch</h2><p>A team member calls or messages you with timings and next steps.</p></div></li>
+      <li><span>3</span><div><h2>You start learning</h2><p>Pick a slot, meet your instructor and take your first lesson.</p></div></li>
+    </ol>
+
+    <div class="ty-links">
+      <p>While you wait, explore:</p>
+      <a href="/car-driving-classes-in-bangalore">Car Driving Classes</a>
+      <a href="/bike-driving-schools-in-bangalore">Bike Training</a>
+      <a href="/womens-driving-lessons-in-bangalore">Ladies Driving</a>
+      <a href="/rto-services-in-bangalore">RTO Services</a>
+      <a href="/">Back to Home</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- footer -->
+<div id="footer"></div>
+
+<script>
+(function () {
+  // The form saves the lead and the server alerts the team on WhatsApp; this page only confirms it.
+  try {
+    var d = JSON.parse(sessionStorage.getItem('lg_thanks'));
+    sessionStorage.removeItem('lg_thanks');   // a refresh or direct visit must not be counted again
+    if (d && typeof gtag === 'function') gtag('event', 'generate_lead', { lead_source: d.source || '', page: d.page || '' });
+  } catch (e) {}
+})();
+</script>
+
+<!-- header footer script-->
+<script>
+function loadComponent(id, file) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', file, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById(id).innerHTML = xhr.responseText;
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Failed to load ' + file);
+    };
+    xhr.send();
+}
+
+loadComponent("header", "header.html");
+loadComponent("footer", "footer.html");
+</script>
+
+</body>
+</html>

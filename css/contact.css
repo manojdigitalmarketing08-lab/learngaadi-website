@@ -1,0 +1,137 @@
+.contact-banner{
+  background: var(--bg-panel);
+  color: var(--white);
+  padding: 70px 24px 50px;
+  text-align: center;
+}
+.contact-banner h1{
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 14px;
+}
+.contact-banner p{
+  color: rgba(255,255,255,.75);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contact-wrap{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+}
+
+.contact-info{
+  background: var(--tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.contact-info h2{
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: var(--navy);
+}
+.contact-info-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.contact-info-item .icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-info-item a, .contact-info-item p{
+  color: var(--dark);
+  line-height: 1.5;
+}
+.contact-info-item .label{
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.contact-socials{
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.contact-socials a{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+}
+
+.contact-form{
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.contact-form h2{
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: var(--navy);
+}
+.contact-form label{
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.contact-form .field{
+  margin-bottom: 18px;
+}
+.contact-form input,
+.contact-form textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--dark);
+}
+.contact-form textarea{
+  min-height: 120px;
+  resize: vertical;
+}
+.contact-form button{
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 15px;
+}
+.contact-form button:hover{
+  background: var(--navy);
+}
+
+@media (max-width: 760px){
+  .contact-wrap{
+    grid-template-columns: 1fr;
+  }
+}

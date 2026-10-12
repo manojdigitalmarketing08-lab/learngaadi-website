@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Learn Gaadi Driving School Bangalore</title>
+
+<meta name="description" content="Get in touch with Learn Gaadi driving school in Bangalore. Call, WhatsApp, or email us to book driving lessons or ask about our courses.">
+
+<meta name="author" content="Learn Gaadi">
+
+<!-- robots-->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- canonical -->
+<link rel="canonical" href="https://learngaadi.in/contact.html" />
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/services.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/lead-form.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1KJJ16MQTX"></script>
+<script>   window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1KJJ16MQTX');
+</script>
+
+</head>
+<body>
+
+<!-- header -->
+<div id="header"></div>
+
+<section class="contact-banner">
+  <h1>Contact Us</h1>
+  <p>Have a question about our driving courses or want to book a lesson? Reach out and our team will get back to you shortly.</p>
+</section>
+
+<div class="contact-wrap">
+
+  <div class="contact-info">
+    <h2>Get In Touch</h2>
+
+    <div class="contact-info-item">
+      <div class="icon"><i class="fa-solid fa-phone"></i></div>
+      <div>
+        <span class="label">Call us</span>
+        <a href="tel:+918296161555">+91 8296161555</a>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+      <div>
+        <span class="label">WhatsApp</span>
+        <a href="https://wa.me/918296161555" target="_blank" rel="noopener">+91 8296161555</a>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+      <div>
+        <span class="label">Email</span>
+        <a href="mailto:gmail.learngaadii@gmail.com">gmail.learngaadii@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="contact-info-item">
+      <div class="icon"><i class="fa-solid fa-clock"></i></div>
+      <div>
+        <span class="label">Working hours</span>
+        <p>Mon – Sun, 7:00 AM – 8:00 PM</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lead-form-wrap" data-lead-form></div>
+
+</div>
+
+<!-- footer -->
+<div id="footer"></div>
+
+<!-- header footer script-->
+<script>
+function loadComponent(id, file) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', file, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById(id).innerHTML = xhr.responseText;
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Failed to load ' + file);
+    };
+    xhr.send();
+}
+
+loadComponent("header", "header.html");
+loadComponent("footer", "footer.html");
+</script>
+
+<script src="/js/lead-form.js" defer></script>
+</body>
+</html>

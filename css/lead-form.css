@@ -1,0 +1,312 @@
+/* Shared lead form (components/lead-form.html) */
+
+.lead-form-wrap{
+  width: 100%;
+  max-width: none;
+}
+
+.lead-form{
+  background: linear-gradient(100deg, var(--blue, #3b6fed) 0%, var(--navy, #173a8a) 100%);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 22px;
+  padding: 22px 22px 22px 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  column-gap: 14px;
+  align-items: end;
+  box-shadow: 0 30px 60px -28px rgba(23,58,138,.55);
+  font-family: var(--font-body, "Inter", sans-serif);
+  text-align: left;
+}
+
+.lead-form__title{
+  font-family: var(--font-display, "Sora", sans-serif);
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--dark, #12142a);
+  margin: 0 0 6px;
+}
+
+.lead-form .lead-form__sub{
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--muted, #6b7189);
+  margin: 0 0 18px;
+  max-width: none;
+}
+
+.lead-form__field{ margin: 0; grid-row: 1; align-self: end; }
+.lead-form__field:nth-of-type(1){ grid-column: 1; }
+.lead-form__field:nth-of-type(2){ grid-column: 2; }
+.lead-form__field:nth-of-type(3){ grid-column: 3; }
+
+.lead-form__field label{
+  display: block;
+  padding-left: 17.5px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 7px;
+}
+
+.lead-form__field input,
+.lead-form__field select{
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  margin: 0;
+  font: inherit;
+  font-size: 14px;
+  line-height: normal;
+  color: var(--dark, #12142a);
+  background: #fff;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(13,15,26,.12);
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.lead-form__field input::placeholder{ color: #8a90a8; opacity: 1; }
+
+.lead-form__field select{
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 42px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2312142a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.lead-form__field input:focus,
+.lead-form__field select:focus{
+  border-color: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.3);
+}
+
+.lead-form__hp{
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.lead-form__btn{
+  grid-column: 4;
+  grid-row: 1;
+  align-self: end;
+  width: auto;
+  min-width: 150px;
+  padding: 0 24px;
+  height: 52px;
+  margin: 0;
+  line-height: 1;
+  border: 0;
+  border-radius: 12px;
+  background: var(--svc-dark, #0d0f1a);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s, transform .15s;
+}
+.lead-form__btn:hover{ background: #000; transform: translateY(-1px); }
+.lead-form__btn:disabled{ opacity: .7; cursor: wait; transform: none; }
+
+.lead-form .lead-form__msg{
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-height: 18px;
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: none;
+}
+.lead-form__msg.is-ok{ color: #c9f7d6; }
+.lead-form__msg.is-error{ color: #ffd9d3; }
+
+/* ---------- custom dropdown (built by js/lead-form.js; the real <select> stays hidden underneath) ---------- */
+.lead-form__field select.lf-native{ display: none; }
+
+.lf-select{ position: relative; }
+
+.lf-select__btn{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 0 42px 0 16px;
+  text-align: left;
+  font: inherit;
+  font-size: 14px;
+  line-height: 49px;
+  color: var(--dark, #12142a);
+  background: #fff;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(13,15,26,.12);
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.lf-select__btn.is-placeholder{ color: #8a90a8; }
+.lf-select__btn::after{
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -6px;
+  border-right: 2px solid var(--dark, #12142a);
+  border-bottom: 2px solid var(--dark, #12142a);
+  transform: rotate(45deg);
+  transition: transform .2s ease, margin-top .2s ease;
+}
+.lf-select.is-open .lf-select__btn::after{ transform: rotate(-135deg); margin-top: -1px; }
+.lf-select__btn:focus-visible,
+.lf-select.is-open .lf-select__btn{
+  border-color: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.3);
+}
+
+.lf-select__list{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 60;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: 360px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 48px -14px rgba(13,15,26,.45), 0 0 0 1px rgba(13,15,26,.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s;
+}
+.lf-select.is-up .lf-select__list{ top: auto; bottom: calc(100% + 8px); transform: translateY(6px); }
+.lf-select.is-open .lf-select__list{ opacity: 1; visibility: visible; transform: translateY(0); }
+
+.lf-select__opt{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 12px 11px 14px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--dark, #12142a);
+  cursor: pointer;
+}
+.lf-select__opt.is-active{ background: #eef2ff; }
+.lf-select__opt.is-selected{ color: var(--blue, #3b6fed); }
+.lf-select__opt.is-selected::after{
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 11px;
+  margin-right: 2px;
+  border-right: 2.5px solid currentColor;
+  border-bottom: 2.5px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+}
+.lf-select__list::-webkit-scrollbar{ width: 8px; }
+.lf-select__list::-webkit-scrollbar-thumb{ background: #d5daea; border-radius: 8px; border: 2px solid #fff; }
+
+/* ---------- placement: home hero (full-width bar under the hero content) ---------- */
+.hero{ flex-wrap: wrap; }
+.hero > .lead-form-wrap{
+  position: relative;
+  z-index: 2;
+  flex: 0 0 100%;
+  margin-top: 36px;
+}
+
+/* ---------- placement: service-page hero (bar on its own row) ---------- */
+.svc-hero-inner{ flex-wrap: wrap; }
+.svc-hero-inner > .lead-form-wrap{
+  flex: 0 0 100%;
+  max-width: none;
+  margin-top: 8px;
+}
+
+/* ---------- placement: contact page ---------- */
+.contact-wrap > .lead-form-wrap{ grid-column: 1 / -1; }
+
+/* ---------- placement: location heroes ---------- */
+.loc-hero-inner > .lead-form-wrap,
+.vj-hero-inner > .lead-form-wrap,
+.mal-hero-inner > .lead-form-wrap{ grid-column: 1 / -1; }
+
+/* ---------- tablet: 2 columns ---------- */
+@media (max-width: 1100px){
+  .lead-form{ grid-template-columns: 1fr 1fr; border-radius: 20px; padding: 22px;  row-gap: 14px; }
+  .lead-form__field{ grid-row: auto; }
+  .lead-form__field:nth-of-type(1){ grid-column: 1; }
+  .lead-form__field:nth-of-type(2){ grid-column: 2; }
+  .lead-form__field:nth-of-type(3){ grid-column: 1; }
+  .lead-form__btn{ grid-column: 2; grid-row: auto; width: 100%; }
+  .lead-form .lead-form__msg{ grid-row: auto; }
+}
+@media (max-width: 600px){
+  .lead-form{ grid-template-columns: 1fr; border-radius: 18px; padding: 18px; }
+  .lead-form__field:nth-of-type(n), .lead-form__btn{ grid-column: 1; }
+}
+
+@media (max-width: 900px){
+  .hero > .lead-form-wrap{
+    order: 3;
+    margin: 0 auto;
+    padding: 0 18px 32px;
+    max-width: none;
+  }
+  .svc-hero-inner > .lead-form-wrap{
+    order: 1;   /* container is column-reverse: shows image, text, then form */
+    flex: none;
+    max-width: none;
+    margin: 0 auto;
+  }
+  .svc-hero-inner .svc-banner-inner{ order: 2; }
+  .svc-hero-inner .svc-hero-media{ order: 3; }
+}
+
+/* no reserved space for the status line until it has a message */
+.lead-form .lead-form__msg:empty{ display: none; }
+
+/* ---------- field validation ---------- */
+.lead-form__field{ position: relative; }
+.lead-form__field input.is-invalid{ border-color: #ff8f80; box-shadow: 0 0 0 3px rgba(255,143,128,.28); }
+.lead-form__err{
+  position: absolute;
+  left: 2px;
+  top: calc(100% + 4px);
+  margin: 0;
+  max-width: 100%;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffd9d3;
+  white-space: nowrap;
+}
+.lead-form__err:empty{ display: none; }
+@media (max-width: 1100px){
+  .lead-form__err{ position: static; margin-top: 6px; white-space: normal; }
+}

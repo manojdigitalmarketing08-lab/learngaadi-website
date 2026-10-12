@@ -1,0 +1,6 @@
+Options -Indexes
+
+# Never serve credentials or schema over HTTP
+<FilesMatch "^(config(\.sample)?\.php|schema\.sql|google-sheet\.gs)$">
+  Require all denied
+</FilesMatch>

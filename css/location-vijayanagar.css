@@ -1,0 +1,262 @@
+/* =========================================================
+   VIJAYANAGAR LOCATION PAGE  (prefix: vj-)
+   Load AFTER location.css. Reuses loc-wrap / loc-section / loc-title / loc-prose,
+   the FAQ + CTA from services.css and the lead form.
+   Layout is deliberately different from the Mysore page:
+   light hero + landmark route, lesson-day cards, level ladder,
+   licence-class rows, fee checklist (no table), horizontal RTO stepper,
+   neighbourhood cards.
+   ========================================================= */
+
+.vj-hero, .vj-block, .vj-classes, .vj-ladies, .vj-fees, .vj-rto, .vj-areas{ font-family: var(--svc-font-body); }
+.vj-block, .vj-classes, .vj-ladies, .vj-fees, .vj-rto, .vj-areas{ scroll-margin-top: 20px; }
+
+/* ---------- 1. HERO (light) ---------- */
+.vj-hero{
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #eef2ff 0%, #f8f9ff 55%, #ffffff 100%);
+  padding: 64px var(--loc-gutter) 0;
+}
+.vj-hero::before{
+  content: ""; position: absolute; right: -120px; top: -140px;
+  width: 460px; height: 460px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,111,237,.16), transparent 70%);
+  pointer-events: none;
+}
+.vj-hero-inner{
+  position: relative; z-index: 2;
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  gap: 40px; align-items: center;
+}
+.vj-kicker{
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .06em; color: var(--svc-blue);
+  background: #fff; border: 1px solid var(--svc-border);
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;
+}
+.vj-kicker svg{ width: 14px; height: 14px; }
+.vj-hero h1{
+  font-family: var(--svc-font-display); font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 40px); line-height: 1.18;
+  color: var(--svc-dark); margin: 0 0 20px;
+}
+.vj-hero h1 em{ font-style: normal; color: var(--svc-blue); }
+.vj-lead{ font-size: 15.5px; line-height: 1.75; font-weight: 600; color: var(--svc-muted); max-width: 610px; margin: 0 0 24px; }
+.vj-want{ margin: 0 0 28px; }
+.vj-want p{ font-size: 12.5px; font-weight: 700; letter-spacing: .08em; color: var(--svc-dark); margin: 0 0 10px; }
+.vj-want ul{ display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+.vj-want li{ list-style: none; }
+.vj-want a{
+  display: inline-block; padding: 9px 16px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--svc-border);
+  font-size: 13px; font-weight: 600; color: var(--svc-dark);
+  transition: border-color .2s ease, color .2s ease, transform .2s ease;
+}
+.vj-want a:hover{ border-color: var(--svc-blue); color: var(--svc-blue); transform: translateY(-2px); }
+.vj-actions{ display: flex; flex-wrap: wrap; gap: 14px; }
+.vj-btn-outline{
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 26px; border-radius: 999px;
+  border: 2px solid var(--svc-blue); color: var(--svc-blue);
+  font-weight: 700; font-size: 14.5px; font-family: var(--svc-font-display);
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.vj-btn-outline:hover{ background: var(--svc-blue); color: #fff; transform: translateY(-2px); }
+.vj-hero .lead-form-wrap{ position: relative; z-index: 2; }
+
+/* landmark route along the bottom of the hero */
+.vj-route{ position: relative; z-index: 2; max-width: 1240px; margin: 56px auto 0; padding: 0 0 34px; }
+.vj-route-label{ font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--svc-muted); margin: 0 0 18px; }
+.vj-route-line{
+  position: relative; display: grid; grid-template-columns: repeat(6, 1fr); margin: 0; padding: 0;
+}
+.vj-route-line::before{
+  content: ""; position: absolute; left: 8px; right: 8px; top: 7px; height: 2px;
+  background: repeating-linear-gradient(90deg, var(--svc-blue) 0 10px, transparent 10px 18px);
+  opacity: .5;
+}
+.vj-route-line li{ list-style: none; position: relative; padding-top: 28px; font-size: 13px; font-weight: 700; color: var(--svc-dark); }
+.vj-route-line li::before{
+  content: ""; position: absolute; left: 0; top: 0;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--svc-blue);
+}
+.vj-route-line li span{ display: block; font-size: 11.5px; font-weight: 600; color: var(--svc-muted); margin-top: 2px; }
+
+/* ---------- shared block ---------- */
+.vj-block.is-tint{ background: var(--svc-bg); }
+.vj-split{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+.vj-split.is-media{ align-items: center; }
+.vj-media{
+  position: relative; overflow: hidden;
+  border-radius: 80px 28px 28px 28px;
+  box-shadow: 0 30px 60px -28px rgba(20,22,44,.4);
+}
+.vj-media img{ width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.vj-media-tag{
+  position: absolute; right: 18px; top: 18px;
+  background: #fff; color: var(--svc-dark); padding: 9px 16px; border-radius: 999px;
+  font-size: 12.5px; font-weight: 700; box-shadow: 0 10px 24px -10px rgba(0,0,0,.35);
+}
+.vj-media-tag b{ color: var(--svc-blue); }
+
+/* ---------- 2. lesson day ---------- */
+.vj-day{ margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: vjday; }
+.vj-day li{
+  list-style: none; position: relative; counter-increment: vjday;
+  background: #fff; border: 1px solid var(--svc-border); border-radius: 18px;
+  padding: 20px 22px 20px 78px;
+}
+.vj-day li::before{
+  content: counter(vjday, decimal-leading-zero);
+  position: absolute; left: 22px; top: 18px;
+  font-family: var(--svc-font-display); font-weight: 800; font-size: 26px; line-height: 1;
+  color: var(--svc-blue-light);
+}
+.vj-day h3{ font-family: var(--svc-font-display); font-size: 15.5px; font-weight: 700; color: var(--svc-dark); margin: 0 0 6px; }
+.vj-day p{ font-size: 15px; line-height: 1.65; color: var(--svc-muted); margin: 0; font-weight: 600; }
+
+/* ---------- 3. car level ladder ---------- */
+.vj-head{ max-width: 760px; margin-bottom: 40px; }
+.vj-ladder{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.vj-step{
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--svc-border); border-radius: 18px;
+  padding: 28px 26px 30px; box-shadow: inset 0 5px 0 var(--svc-blue-light);   /* level colour stays inside the rounded corners */
+}
+.vj-step:nth-child(2){ box-shadow: inset 0 5px 0 var(--svc-blue); }
+.vj-step:nth-child(3){ box-shadow: inset 0 5px 0 var(--svc-navy); }
+.vj-step small{ margin-top: 6px; }
+.vj-step h3{ min-height: 2.7em; }   /* same title height so the paragraphs start on one line */
+.vj-step small{ display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; color: var(--svc-blue); margin-bottom: 10px; }
+.vj-step h3{ font-family: var(--svc-font-display); font-size: 18px; font-weight: 700; color: var(--svc-dark); margin: 0 0 10px; }
+.vj-step p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted); margin: 0; font-weight: 600; }
+.vj-after{ display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-top: 30px; }
+.vj-after p{ flex: 1; max-width: 760px; margin: 0; }
+.vj-after .svc-btn-primary{ flex: none; }
+
+/* ---------- 4. bike ---------- */
+.vj-checks{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0 26px; padding: 0; }
+.vj-checks li{
+  list-style: none; display: flex; gap: 10px; align-items: flex-start;
+  font-size: 13.5px; line-height: 1.5; font-weight: 600; color: var(--svc-dark);
+  background: var(--svc-tint); border-radius: 14px; padding: 13px 15px;
+}
+.vj-checks svg{ flex: none; width: 17px; height: 17px; color: var(--svc-blue); margin-top: 2px; }
+
+/* ---------- 5. licence class rows (dark) ---------- */
+.vj-classes{ background: var(--svc-dark); }
+.vj-classes .loc-title{ color: #fff; }
+.vj-classes .loc-prose p{ color: var(--svc-muted-light); }
+.vj-classes .vj-head{ margin-bottom: 34px; }
+.vj-rows{ margin: 0; padding: 0; border-top: 1px solid var(--svc-rule); }
+.vj-rows > li{
+  list-style: none; display: grid; grid-template-columns: 110px minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 28px; align-items: start; padding: 28px 0; border-bottom: 1px solid var(--svc-rule);
+}
+.vj-code{
+  font-family: var(--svc-font-display); font-weight: 800; font-size: 28px; letter-spacing: .02em;
+  color: var(--svc-blue-light); line-height: 1.1;
+}
+.vj-rows h3{ font-family: var(--svc-font-display); font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+.vj-rows p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted-light); margin: 0; font-weight: 600; }
+.vj-focus{ display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 0; padding: 0; }
+.vj-focus li{
+  display: block; padding: 7px 13px; border: 1px solid var(--svc-rule); border-radius: 999px;
+  font-size: 12.5px; font-weight: 600; color: #cfd6ff;
+}
+
+/* ---------- 6. ladies ---------- */
+.vj-ladies{ background: linear-gradient(110deg, #f7f0ff 0%, #eef2ff 100%); }
+.vj-ladies-grid{ display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; align-items: center; }
+.vj-arch{ border-radius: 999px 999px 28px 28px; overflow: hidden; max-width: 360px; box-shadow: 0 30px 60px -28px rgba(20,22,44,.4); }
+.vj-arch img{ width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.vj-first{ margin: 24px 0 28px; padding: 0; display: grid; gap: 12px; }
+.vj-first li{
+  list-style: none; background: rgba(255,255,255,.8); border-radius: 14px; padding: 14px 18px;
+  font-size: 14px; line-height: 1.6; color: var(--svc-muted); font-weight: 600;
+}
+.vj-first b{ color: var(--svc-dark); }
+
+/* ---------- 7. fees (checklist, no table) ---------- */
+.vj-fee-grid{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin-top: 8px; }
+.vj-card{ background: #fff; border: 1px solid var(--svc-border); border-radius: 22px; padding: 30px 30px 28px; }
+.vj-card.is-accent{ background: var(--svc-dark); border-color: var(--svc-dark); }
+.vj-card h3{ font-family: var(--svc-font-display); font-size: 18px; font-weight: 700; color: var(--svc-dark); margin: 0 0 18px; }
+.vj-card.is-accent h3{ color: #fff; }
+.vj-list{ margin: 0; padding: 0; display: grid; gap: 14px; }
+.vj-list li{ list-style: none; position: relative; padding-left: 28px; font-size: 14px; line-height: 1.65; color: var(--svc-muted); font-weight: 600; }
+.vj-list li::before{
+  content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--svc-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b6fed' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center / 10px no-repeat;
+}
+.vj-list b{ color: var(--svc-dark); }
+.vj-card.is-accent .vj-list li{ color: var(--svc-muted-light); }
+.vj-card.is-accent .vj-list li::before{ background-color: rgba(111,147,255,.18); }
+.vj-card.is-accent .vj-list b{ color: #fff; }
+.vj-quote-line{ margin-top: 26px; padding: 22px 26px; border-radius: 18px; background: var(--svc-tint); display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; }
+.vj-quote-line p{ margin: 0; font-size: 15px; line-height: 1.6; font-weight: 600; color: var(--svc-dark); max-width: 640px; }
+
+/* ---------- 8. RTO stepper ---------- */
+.vj-rto{ background: var(--svc-bg); }
+.vj-stepper{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 0 0 36px; padding: 0; counter-reset: vjs; }
+.vj-stepper li{ list-style: none; position: relative; padding: 52px 22px 0 0; counter-increment: vjs; }
+.vj-stepper li::before{
+  content: counter(vjs); position: absolute; left: 0; top: 0; z-index: 2;
+  width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--svc-blue); color: #fff;
+  font-family: var(--svc-font-display); font-weight: 800; font-size: 14px;
+}
+.vj-stepper li::after{ content: ""; position: absolute; left: 38px; right: 0; top: 18px; height: 2px; background: var(--svc-border); }
+.vj-stepper li:last-child::after{ display: none; }
+.vj-stepper h3{ font-family: var(--svc-font-display); font-size: 16.5px; font-weight: 700; color: var(--svc-dark); margin: 0 0 8px; }
+.vj-stepper p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted); margin: 0; font-weight: 600; }
+.vj-carry{
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 36px; align-items: center;
+  background: #fff; border: 1px solid var(--svc-border); border-radius: 22px; padding: 30px 34px;
+}
+.vj-carry h3{ font-family: var(--svc-font-display); font-size: 18px; font-weight: 700; color: var(--svc-dark); margin: 0 0 8px; }
+.vj-carry p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted); margin: 0 0 18px; font-weight: 600; }
+.vj-carry .vj-tags{ display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
+.vj-tags li{ list-style: none; padding: 9px 16px; border-radius: 999px; background: var(--svc-tint); color: var(--svc-navy); font-size: 13px; font-weight: 600; }
+
+/* ---------- 9. neighbourhood cards ---------- */
+.vj-areas{ background: #fff; }
+.vj-area-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 34px 0 0; padding: 0; }
+.vj-area{
+  list-style: none; border: 1.5px solid var(--svc-border); border-radius: 18px; padding: 20px 20px 18px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.vj-area:hover{ border-color: var(--svc-blue); transform: translateY(-3px); }
+.vj-area h3{ display: flex; align-items: center; gap: 8px; font-family: var(--svc-font-display); font-size: 15px; font-weight: 700; color: var(--svc-dark); margin: 0 0 8px; }
+.vj-area h3 svg{ flex: none; width: 15px; height: 15px; color: var(--svc-blue); }
+.vj-area p{ font-size: 15px; line-height: 1.65; color: var(--svc-muted); margin: 0; font-weight: 600; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px){
+  .vj-area-grid{ grid-template-columns: repeat(2, 1fr); }
+  .vj-rows > li{ grid-template-columns: 90px minmax(0, 1fr); }
+  .vj-rows .vj-focus{ grid-column: 2; }
+}
+@media (max-width: 900px){
+  .vj-hero{ padding-top: 44px; }
+  .vj-hero-inner, .vj-split, .vj-ladies-grid, .vj-fee-grid, .vj-carry{ grid-template-columns: 1fr; gap: 32px; }
+  .vj-ladder{ grid-template-columns: 1fr; align-items: stretch; }
+  .vj-step h3{ min-height: 0; }
+  .vj-after{ flex-direction: column; align-items: flex-start; gap: 20px; }
+  .vj-stepper{ grid-template-columns: 1fr 1fr; row-gap: 30px; }
+  .vj-stepper li:nth-child(2)::after{ display: none; }
+  .vj-route-line{ grid-template-columns: repeat(3, 1fr); row-gap: 26px; }
+  .vj-route-line::before{ display: none; }
+  .vj-arch{ margin: 0 auto; }
+}
+@media (max-width: 560px){
+  .vj-checks, .vj-area-grid, .vj-stepper{ grid-template-columns: 1fr; }
+  .vj-stepper li::after{ display: none; }
+  .vj-route-line{ grid-template-columns: repeat(2, 1fr); }
+  .vj-rows > li{ grid-template-columns: 1fr; gap: 12px; }
+  .vj-rows .vj-focus{ grid-column: auto; }
+  .vj-card{ padding: 24px 20px; }
+  .vj-carry{ padding: 24px 20px; }
+}

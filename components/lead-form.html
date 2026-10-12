@@ -1,0 +1,48 @@
+<!-- Single lead form used across the whole site. Loaded by js/lead-form.js into any <div data-lead-form>. -->
+<form class="lead-form" method="post" action="/api/lead.php" novalidate>
+
+  <div class="lead-form__field">
+    <label for="lf-name">Full Name</label>
+    <input type="text" id="lf-name" name="name" placeholder="Your name" autocomplete="name" maxlength="80" required>
+  </div>
+
+  <div class="lead-form__field">
+    <label for="lf-phone">Mobile Number</label>
+    <input type="tel" id="lf-phone" name="phone" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric" maxlength="17" pattern="[0-9+\- ]*" required>
+  </div>
+
+  <div class="lead-form__field">
+    <label for="lf-service">I'm interested in</label>
+    <select id="lf-service" name="service">
+      <option value="">Select a service</option>
+      <option>Car Driving Classes</option>
+      <option>Automatic Car Driving Lessons</option>
+      <option>Learn Driving in Your Own Car</option>
+      <option>Women's Driving Lessons</option>
+      <option>Bike Driving</option>
+      <option>Bus Driving</option>
+      <option>Auto Rickshaw Driving</option>
+      <option>RTO Services</option>
+    </select>
+  </div>
+
+  <!-- honeypot: real users never see or fill this -->
+  <div class="lead-form__hp" aria-hidden="true">
+    <label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+  </div>
+
+  <!-- tracking fields, filled by js/lead-form.js -->
+  <input type="hidden" name="page_url">
+  <input type="hidden" name="page_path">
+  <input type="hidden" name="page_title">
+  <input type="hidden" name="source">
+  <input type="hidden" name="medium">
+  <input type="hidden" name="campaign">
+  <input type="hidden" name="referrer">
+  <input type="hidden" name="landing_page">
+  <input type="hidden" name="click_id">
+
+  <button type="submit" class="lead-form__btn">Get Free Enquiry</button>
+  <p class="lead-form__msg" role="status" aria-live="polite"></p>
+
+</form>
