@@ -11,7 +11,7 @@
 .mal-hero, .mal-sec, .mal-ladder, .mal-lic, .mal-ladies, .mal-fees,
 .mal-rto, .mal-streets, .mal-callbar{ font-family: var(--svc-font-body); }
 
-:root{ --mal-gutter: clamp(20px, 10vw, 200px); --mal-ink: #0d0f1a; --mal-warm: #fff7ec; }
+:root{ --mal-gutter: clamp(20px, 10vw, 200px); --mal-ink: #0d0f1a; --mal-warm: #eef2ff; }
 
 .mal-wrap{ max-width: 1240px; margin: 0 auto; }
 .mal-sec{ padding: 88px var(--mal-gutter); }
@@ -52,8 +52,8 @@
   display: inline-flex; align-items: center; gap: 8px;
   padding: 5px 12px; border-radius: 6px;
   background: var(--mal-warm);
-  border: 1px dashed #e5b36b;
-  color: #8a5a12;
+  border: 1px dashed #b9c6ee;
+  color: #173a8a;
   font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
   margin-bottom: 18px;
 }
@@ -152,11 +152,14 @@
 .mal-level li::before{ content: "✓"; position: absolute; left: 0; color: var(--svc-blue); font-weight: 800; }
 .mal-note{
   display: flex; gap: 14px; align-items: flex-start;
-  background: var(--mal-warm); border-left: 4px solid #e5a24a; border-radius: 0 14px 14px 0;
+  background: var(--mal-warm); border-left: 4px solid #3b6fed; border-radius: 0 14px 14px 0;
   padding: 16px 20px; margin: 0 0 28px;
-  font-size: 14px; line-height: 1.65; color: #6b4a14; font-weight: 600;
+  font-size: 14px; line-height: 1.65; color: #173a8a; font-weight: 600;
 }
-.mal-note b{ color: #4a3208; }
+.mal-note b{ color: #12142a; }
+.mal-after{ display: flex; align-items: center; justify-content: space-between; gap: 32px; margin: 0 0 28px; }
+.mal-after .mal-note{ flex: 1; margin: 0; }
+.mal-after .svc-btn-primary{ flex: none; }
 
 /* ---------- 3. BIKE: blue skill-ladder band ---------- */
 .mal-ladder{ background: var(--svc-blue); color: #fff; position: relative; overflow: hidden; }
@@ -200,15 +203,15 @@
 .mal-lic-tag{ justify-self: end; font-size: 12px; font-weight: 700; color: var(--svc-navy); background: var(--svc-tint); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
 
 /* ---------- 5. LADIES ---------- */
-.mal-ladies{ background: linear-gradient(120deg, #fff4ee 0%, #fdeefa 100%); }
+.mal-ladies{ background: linear-gradient(120deg, #eef2ff 0%, #f8f9ff 100%); }
 .mal-ladies-grid{ display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: center; }
 .mal-arch{
   border-radius: 999px 999px 24px 24px; overflow: hidden; max-width: 380px;
-  box-shadow: 0 30px 60px -28px rgba(80,30,60,.45);
+  box-shadow: 0 30px 60px -28px rgba(20,22,44,.45);
   border: 8px solid #fff;
 }
 .mal-arch img{ width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
-.mal-ladies .svc-eyebrow{ color: #b0386f; }
+.mal-ladies .svc-eyebrow{ color: #2f6fed; }
 .mal-promise{ margin: 24px 0 28px; padding: 0; display: grid; gap: 12px; }
 .mal-promise li{
   list-style: none; background: rgba(255,255,255,.8); border-radius: 14px;
@@ -217,15 +220,15 @@
 }
 .mal-promise li::before{
   content: "✓"; position: absolute; left: 16px; top: 13px;
-  width: 22px; height: 22px; border-radius: 50%; background: #b0386f; color: #fff;
+  width: 22px; height: 22px; border-radius: 50%; background: #2f6fed; color: #fff;
   display: grid; place-items: center; font-size: 12px; font-weight: 800;
 }
 .mal-btn-rose{
   display: inline-flex; padding: 14px 26px; border-radius: 999px;
-  background: #b0386f; color: #fff; font-weight: 700; font-size: 14.5px;
+  background: #2f6fed; color: #fff; font-weight: 700; font-size: 14.5px;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.mal-btn-rose:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px -12px rgba(176,56,111,.6); }
+.mal-btn-rose:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px -12px rgba(47,111,237,.6); }
 
 /* ---------- 6. FEES: included / depends-on ---------- */
 .mal-fees-grid{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; margin: 34px 0 26px; }
@@ -325,6 +328,7 @@
   .mal-route-line::before{ display: none; }
   .mal-levels{ grid-template-columns: 1fr; }
   .mal-rto-foot{ flex-direction: column; align-items: flex-start; gap: 20px; }
+  .mal-after{ flex-direction: column; align-items: flex-start; gap: 20px; }
   .mal-arch{ margin: 0 auto; }
 }
 @media (max-width: 640px){
@@ -362,3 +366,7 @@
 .mal-rto-head,
 #car-classes .mal-wrap > .mal-prose,
 #fees .mal-wrap > .mal-prose{ text-align: center; margin-left: auto; margin-right: auto; }
+
+/* column CTAs sit on the right edge of their text column */
+.mal-ladder .mal-prose > a,
+.mal-ladies .mal-prose > a{ display: flex; width: fit-content; margin-left: auto; }

@@ -203,7 +203,7 @@
 
 /* ---------- 5. LADIES BAND ---------- */
 .loc-ladies{
-  background: linear-gradient(110deg, #eef2ff 0%, #f7f0ff 100%);
+  background: linear-gradient(110deg, #eef2ff 0%, #f8f9ff 100%);
   scroll-margin-top: 64px;
 }
 .loc-ladies-grid{ display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
@@ -453,3 +453,14 @@
 
 @media (max-width: 1250px){ .loc-blocks{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px){ .loc-blocks{ grid-template-columns: 1fr; } }
+
+/* column CTAs sit on the right edge of their text column */
+.loc-row-grid .loc-prose > .svc-btn-primary,
+.loc-ladies-grid .loc-prose > .svc-btn-primary,
+.vj-split .loc-prose > .svc-btn-primary,
+.vj-ladies .loc-prose > .svc-btn-primary,
+.ck-ladies .loc-prose > .svc-btn-primary,
+.yp-ladies .loc-prose > .svc-btn-primary{ display: flex; width: fit-content; margin-left: auto; }
+.loc-rto-intro > .svc-btn-primary,
+.loc-car-head > .svc-btn-primary,
+.loc-checklist > .svc-btn-primary{ display: flex; width: fit-content; margin-left: auto; }

@@ -55,4 +55,46 @@
        <changefreq>daily</changefreq>
        <priority>0.8</priority>
   </url>
+  <url>
+       <loc>https://learngaadi.in/driving-school-in-mysore</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
+  <url>
+       <loc>https://learngaadi.in/driving-school-in-rajajinagar</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
+  <url>
+       <loc>https://learngaadi.in/driving-school-in-vijayanagar</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
+  <url>
+       <loc>https://learngaadi.in/driving-school-in-chickpet</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
+  <url>
+       <loc>https://learngaadi.in/driving-school-in-yeshwanthpur</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
+  <url>
+       <loc>https://learngaadi.in/driving-school-in-chamarajanagar</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
+  <url>
+       <loc>https://learngaadi.in/driving-schools-in-malleswaram</loc>
+       <lastmod>2026-10-13</lastmod>
+       <changefreq>weekly</changefreq>
+       <priority>0.7</priority>
+  </url>
 </urlset>

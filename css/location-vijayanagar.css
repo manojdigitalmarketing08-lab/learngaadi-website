@@ -168,7 +168,7 @@
 }
 
 /* ---------- 6. ladies ---------- */
-.vj-ladies{ background: linear-gradient(110deg, #f7f0ff 0%, #eef2ff 100%); }
+.vj-ladies{ background: linear-gradient(110deg, #f8f9ff 0%, #eef2ff 100%); }
 .vj-ladies-grid{ display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; align-items: center; }
 .vj-arch{ border-radius: 999px 999px 28px 28px; overflow: hidden; max-width: 360px; box-shadow: 0 30px 60px -28px rgba(20,22,44,.4); }
 .vj-arch img{ width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }

@@ -1,0 +1,282 @@
+/* =========================================================
+   YESHWANTHPUR LOCATION PAGE  (prefix: yp-)
+   Load AFTER location.css. Reuses loc-wrap / loc-section / loc-title / loc-prose,
+   the FAQ + CTA from services.css and the lead form.
+   Theme: Yeshwanthpur is a transit hub (Metro, Railway Station, Tumkur Road),
+   so the page is built like a journey:
+   navy hero + departure board, ticket-style car levels, image-overlay bike block,
+   tall vehicle lanes, split fee checklist, metro-line RTO timeline,
+   grouped landmark columns.
+   ========================================================= */
+
+.yp-hero, .yp-sec, .yp-lanes, .yp-ladies, .yp-fees, .yp-rto, .yp-areas{ font-family: var(--svc-font-body); }
+.yp-sec, .yp-lanes, .yp-ladies, .yp-fees, .yp-rto, .yp-areas{ scroll-margin-top: 20px; }
+
+/* ---------- 1. HERO (navy, departure board) ---------- */
+.yp-hero{
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #12142a 0%, #173a8a 100%);
+  padding: 64px var(--loc-gutter) 56px;
+}
+.yp-hero::before{
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 64px),
+    radial-gradient(560px 380px at 8% 0%, rgba(111,147,255,.28), transparent 70%);
+}
+.yp-hero-inner{
+  position: relative; z-index: 2;
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: 48px; align-items: center;
+}
+.yp-pill{
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 6px;
+  background: #6f93ff; color: #12142a;
+  font-size: 11.5px; font-weight: 800; letter-spacing: .08em; margin-bottom: 18px;
+}
+.yp-pill svg{ width: 14px; height: 14px; }
+.yp-hero h1{
+  font-family: var(--svc-font-display); font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 40px); line-height: 1.18;
+  color: #fff; margin: 0 0 20px;
+}
+.yp-hero h1 em{ font-style: normal; color: #6f93ff; }
+.yp-lead{ font-size: 15.5px; line-height: 1.75; font-weight: 600; color: #c9d3f5; max-width: 600px; margin: 0; }
+
+.yp-board{
+  background: #0a1230; border: 1px solid rgba(255,255,255,.14); border-radius: 18px;
+  overflow: hidden; box-shadow: 0 34px 60px -30px rgba(0,0,0,.6);
+}
+.yp-board-head{
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 14px 20px; background: #6f93ff; color: #12142a;
+  font-family: var(--svc-font-display); font-size: 12.5px; font-weight: 800; letter-spacing: .1em;
+}
+.yp-board-head span:last-child{ font-weight: 700; letter-spacing: .04em; opacity: .75; }
+.yp-board ul{ margin: 0; padding: 6px 0; }
+.yp-board li{
+  list-style: none; display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 14px; align-items: center;
+  padding: 13px 20px; border-bottom: 1px dashed rgba(255,255,255,.12);
+}
+.yp-board li:last-child{ border-bottom: 0; }
+.yp-board b{ font-family: var(--svc-font-display); font-size: 13px; color: #6f93ff; letter-spacing: .04em; }
+.yp-board strong{ font-size: 14.5px; font-weight: 700; color: #fff; }
+.yp-board small{ font-size: 12px; font-weight: 600; color: #c9d3f5; text-align: right; }
+.yp-hero .lead-form-wrap{ grid-column: 1 / -1; position: relative; z-index: 2; }
+
+/* ---------- shared section ---------- */
+.yp-sec.is-tint{ background: var(--svc-bg); }
+.yp-head{ max-width: 760px; margin-bottom: 38px; }
+.yp-head.is-center{ margin-left: auto; margin-right: auto; text-align: center; }
+
+/* ---------- 2. training: sticky intro + metro line ---------- */
+.yp-intro{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+.yp-intro .loc-prose{ position: sticky; top: 100px; }
+.yp-line{ position: relative; margin: 0; padding: 0 0 0 46px; }
+.yp-line::before{
+  content: ""; position: absolute; left: 13px; top: 8px; bottom: 8px; width: 4px; border-radius: 4px;
+  background: linear-gradient(180deg, var(--svc-blue), var(--svc-blue-light));
+}
+.yp-line li{ list-style: none; position: relative; padding-bottom: 30px; }
+.yp-line li:last-child{ padding-bottom: 0; }
+.yp-line li::before{
+  content: ""; position: absolute; left: -41px; top: 2px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #fff; border: 5px solid var(--svc-blue); box-sizing: border-box;
+}
+.yp-line small{ display: block; font-size: 11.5px; font-weight: 800; letter-spacing: .1em; color: var(--svc-blue); margin-bottom: 4px; }
+.yp-line h3{ font-family: var(--svc-font-display); font-size: 17px; font-weight: 700; color: var(--svc-dark); margin: 0 0 6px; }
+.yp-line p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted); margin: 0; font-weight: 600; }
+
+/* ---------- 3. car levels: ticket cards ---------- */
+.yp-tickets{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0 0 34px; padding: 0; }
+.yp-ticket{
+  list-style: none; position: relative; background: #fff;
+  border: 1.5px solid var(--svc-border); border-radius: 20px;
+  display: flex; flex-direction: column;
+}
+.yp-ticket-top{
+  padding: 24px 24px 20px; border-bottom: 2px dashed var(--svc-border); position: relative;
+}
+.yp-ticket-top::before, .yp-ticket-top::after{
+  content: ""; position: absolute; bottom: -13px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--svc-bg); border: 1.5px solid var(--svc-border);
+}
+.yp-ticket-top::before{ left: -13px; clip-path: inset(0 0 0 50%); }
+.yp-ticket-top::after{ right: -13px; clip-path: inset(0 50% 0 0); }
+.yp-ticket small{ display: block; font-size: 11px; font-weight: 800; letter-spacing: .12em; color: var(--svc-blue); margin-bottom: 8px; }
+.yp-ticket h3{ font-family: var(--svc-font-display); font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--svc-dark); margin: 0; }
+.yp-ticket-body{ padding: 22px 24px 26px; flex: 1; }
+.yp-ticket-body p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted); margin: 0 0 16px; font-weight: 600; }
+.yp-ticket-body ul{ margin: 0; padding: 0; display: grid; gap: 8px; }
+.yp-ticket-body li{ list-style: none; position: relative; padding-left: 22px; font-size: 14px; font-weight: 700; color: var(--svc-dark); }
+.yp-ticket-body li::before{
+  content: ""; position: absolute; left: 2px; top: 6px; width: 8px; height: 8px; border-radius: 2px;
+  background: var(--svc-blue); transform: rotate(45deg);
+}
+.yp-note{ display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+.yp-note p{ margin: 0; max-width: 760px; font-size: 15.5px; line-height: 1.75; color: var(--svc-muted); font-weight: 600; }
+
+/* ---------- 4. bike: image with overlapping panel ---------- */
+.yp-bike{ position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: center; }
+.yp-bike-img{ grid-column: 1 / 8; grid-row: 1; position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -28px rgba(20,22,44,.4); }
+.yp-bike-img img{ display: block; width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
+.yp-bike-panel{
+  grid-column: 7 / 13; grid-row: 1; position: relative; z-index: 2;
+  background: #fff; border: 1px solid var(--svc-border); border-radius: 24px;
+  padding: 36px 36px 34px; box-shadow: 0 30px 60px -30px rgba(20,22,44,.3);
+}
+.yp-bike-panel p{ font-size: 15.5px; line-height: 1.75; color: var(--svc-muted); margin: 0 0 16px; font-weight: 600; }
+.yp-chips{ display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 20px; padding: 0; }
+.yp-chips li{ list-style: none; padding: 9px 16px; border-radius: 8px; background: var(--svc-tint); color: var(--svc-navy); font-size: 13px; font-weight: 700; }
+
+/* ---------- 5. vehicle lanes (dark) ---------- */
+.yp-lanes{ background: var(--svc-panel); }
+.yp-lanes .loc-title{ color: #fff; }
+.yp-lanes .loc-prose p{ color: var(--svc-muted-light); }
+.yp-lane-grid{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; }
+.yp-lane{
+  list-style: none; position: relative; overflow: hidden;
+  background: var(--svc-card); border: 1px solid var(--svc-rule); border-radius: 22px;
+  padding: 26px 24px 28px; min-height: 330px;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.yp-lane:hover{ transform: translateY(-5px); border-color: var(--svc-blue-light); }
+.yp-lane-code{
+  display: block; font-family: var(--svc-font-display); font-weight: 800; font-size: 54px; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1.5px var(--svc-blue-light); margin-bottom: 22px; letter-spacing: -.01em;
+}
+.yp-lane h3{ font-family: var(--svc-font-display); font-size: 16.5px; line-height: 1.35; font-weight: 700; color: #fff; margin: 0 0 10px; }
+.yp-lane p{ font-size: 14.5px; line-height: 1.7; color: var(--svc-muted-light); margin: 0 0 16px; font-weight: 600; }
+.yp-lane span.yp-tag{
+  position: absolute; left: 24px; bottom: 22px;
+  font-size: 11.5px; font-weight: 700; color: #6f93ff; letter-spacing: .04em;
+}
+.yp-lane p:last-of-type{ margin-bottom: 34px; }
+
+/* ---------- 6. ladies ---------- */
+.yp-ladies{ background: linear-gradient(180deg, #fff 0%, var(--svc-tint) 100%); }
+.yp-ladies-grid{ display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; align-items: center; }
+.yp-promise{ display: grid; gap: 14px; margin: 22px 0 26px; padding: 0; }
+.yp-promise li{
+  list-style: none; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: start;
+  background: #fff; border: 1px solid var(--svc-border); border-radius: 16px; padding: 16px 18px;
+}
+.yp-promise i{
+  font-style: normal; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
+  background: var(--svc-blue); color: #fff; font-family: var(--svc-font-display); font-weight: 800; font-size: 15px;
+}
+.yp-promise b{ display: block; font-family: var(--svc-font-display); font-size: 15px; color: var(--svc-dark); margin-bottom: 3px; }
+.yp-promise span{ font-size: 14.5px; line-height: 1.65; color: var(--svc-muted); font-weight: 600; }
+.yp-round{ position: relative; max-width: 420px; margin: 0 auto; }
+.yp-round::before{
+  content: ""; position: absolute; inset: -16px -16px 16px 16px; border-radius: 50%;
+  border: 2px dashed var(--svc-blue-light);
+}
+.yp-round img{ position: relative; display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 30px 60px -28px rgba(20,22,44,.45); }
+
+/* ---------- 7. fees ---------- */
+.yp-fee-grid{ display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 36px; align-items: start; }
+.yp-quote{
+  position: sticky; top: 100px;
+  background: linear-gradient(150deg, var(--svc-blue) 0%, var(--svc-navy) 100%);
+  border-radius: 24px; padding: 36px 32px; color: #fff;
+}
+.yp-quote small{ display: block; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; color: #6f93ff; margin-bottom: 12px; }
+.yp-quote h3{ font-family: var(--svc-font-display); font-size: 22px; line-height: 1.3; font-weight: 800; margin: 0 0 14px; }
+.yp-quote p{ font-size: 15px; line-height: 1.7; font-weight: 600; color: #dbe4ff; margin: 0 0 22px; }
+.yp-quote .svc-btn-primary{ background: #fff; color: var(--svc-navy); }
+.yp-quote .svc-btn-primary:hover{ background: #fff; color: #12142a; }
+.yp-check{ display: grid; gap: 12px; margin: 0; padding: 0; }
+.yp-check details{ background: #fff; border: 1.5px solid var(--svc-border); border-radius: 16px; transition: border-color .2s ease; }
+.yp-check details[open]{ border-color: var(--svc-blue); }
+.yp-check summary{
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 22px; font-family: var(--svc-font-display); font-size: 15.5px; font-weight: 700; color: var(--svc-dark);
+}
+.yp-check summary::-webkit-details-marker{ display: none; }
+.yp-check summary::after{ content: "+"; flex: none; font-size: 22px; line-height: 1; color: var(--svc-blue); font-weight: 600; }
+.yp-check details[open] summary::after{ content: "\2212"; }
+.yp-check details p{ margin: 0; padding: 0 22px 20px; font-size: 15px; line-height: 1.7; color: var(--svc-muted); font-weight: 600; }
+
+/* ---------- 8. RTO: documents card + vertical timeline ---------- */
+.yp-rto{ background: var(--svc-bg); }
+.yp-rto-grid{ display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; }
+.yp-docs{ margin-top: 26px; background: #fff; border: 1px solid var(--svc-border); border-radius: 22px; padding: 26px 28px; }
+.yp-docs h3{ font-family: var(--svc-font-display); font-size: 17px; font-weight: 700; color: var(--svc-dark); margin: 0 0 6px; }
+.yp-docs p{ font-size: 14.5px; line-height: 1.7; color: var(--svc-muted); margin: 0 0 16px; font-weight: 600; }
+.yp-docs ul{ display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
+.yp-docs li{ list-style: none; padding: 8px 14px; border-radius: 8px; background: var(--svc-tint); color: var(--svc-navy); font-size: 13px; font-weight: 700; }
+.yp-track{ margin: 0; padding: 0; counter-reset: ypt; }
+.yp-track li{
+  list-style: none; position: relative; counter-increment: ypt;
+  background: #fff; border: 1px solid var(--svc-border); border-radius: 18px;
+  padding: 20px 22px 20px 84px; margin-bottom: 26px;
+}
+.yp-track li:last-child{ margin-bottom: 0; }
+.yp-track li::before{
+  content: counter(ypt); position: absolute; left: 20px; top: 20px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--svc-blue); color: #fff; font-family: var(--svc-font-display); font-weight: 800; font-size: 17px;
+}
+.yp-track li:not(:last-child)::after{
+  content: ""; position: absolute; left: 41px; top: 64px; bottom: -28px; width: 2px;
+  background: repeating-linear-gradient(180deg, var(--svc-blue-light) 0 6px, transparent 6px 12px);
+}
+.yp-track h3{ font-family: var(--svc-font-display); font-size: 16.5px; font-weight: 700; color: var(--svc-dark); margin: 0 0 6px; }
+.yp-track p{ font-size: 15px; line-height: 1.7; color: var(--svc-muted); margin: 0; font-weight: 600; }
+
+/* ---------- 9. landmark columns ---------- */
+.yp-areas{ background: #fff; }
+.yp-area-grid{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 38px 0 0; padding: 0; border: 1.5px solid var(--svc-border); border-radius: 22px; overflow: hidden; }
+.yp-area-col{ list-style: none; padding: 26px 24px 28px; border-right: 1.5px solid var(--svc-border); }
+.yp-area-col:last-child{ border-right: 0; }
+.yp-area-col h3{
+  font-family: var(--svc-font-display); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--svc-blue); margin: 0 0 6px;
+}
+.yp-area-col > p{ font-size: 14px; line-height: 1.6; color: var(--svc-muted); margin: 0 0 18px; font-weight: 600; }
+.yp-area-col ul{ margin: 0; padding: 0; display: grid; gap: 14px; }
+.yp-area-col li{ list-style: none; padding-left: 16px; position: relative; }
+.yp-area-col li::before{ content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--svc-blue); }
+.yp-area-col b{ display: block; font-family: var(--svc-font-display); font-size: 14.5px; color: var(--svc-dark); margin-bottom: 2px; }
+.yp-area-col span{ display: block; font-size: 13.5px; line-height: 1.55; color: var(--svc-muted); font-weight: 600; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px){
+  .yp-lane-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .yp-area-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .yp-area-col:nth-child(2){ border-right: 0; }
+  .yp-area-col:nth-child(-n+2){ border-bottom: 1.5px solid var(--svc-border); }
+  .yp-bike-img{ grid-column: 1 / 9; }
+  .yp-bike-panel{ grid-column: 6 / 13; }
+}
+@media (max-width: 900px){
+  .yp-hero{ padding-top: 44px; }
+  .yp-hero-inner, .yp-intro, .yp-ladies-grid, .yp-fee-grid, .yp-rto-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .yp-intro .loc-prose, .yp-quote{ position: static; }
+  .yp-tickets{ grid-template-columns: 1fr; }
+  .yp-bike{ display: block; }
+  .yp-bike-panel{ margin: -56px 16px 0; }
+  .yp-round{ max-width: 320px; }
+  .yp-ladies-grid .yp-round{ order: -1; }
+}
+@media (max-width: 560px){
+  .yp-lane-grid{ grid-template-columns: 1fr; }
+  .yp-lane{ min-height: 0; }
+  .yp-area-grid{ grid-template-columns: 1fr; }
+  .yp-area-col{ border-right: 0; border-bottom: 1.5px solid var(--svc-border); }
+  .yp-area-col:last-child{ border-bottom: 0; }
+  .yp-board li{ grid-template-columns: 30px minmax(0, 1fr); }
+  .yp-board small{ grid-column: 2; text-align: left; }
+  .yp-bike-panel{ margin: -40px 8px 0; padding: 26px 22px; }
+  .yp-track li{ padding: 18px 18px 18px 70px; }
+  .yp-track li::before{ left: 14px; width: 40px; height: 40px; }
+  .yp-track li:not(:last-child)::after{ left: 33px; }
+  .yp-quote{ padding: 28px 22px; }
+}
+
+/* panel CTAs sit on the right edge */
+.yp-bike-panel > .svc-btn-primary, .yp-quote > .svc-btn-primary{ display: flex; width: fit-content; margin-left: auto; }
