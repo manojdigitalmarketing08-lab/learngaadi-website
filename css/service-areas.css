@@ -1,0 +1,28 @@
+/* "Locations we serve" block on the service pages */
+.svc-areas{ background: #fff; padding: 80px clamp(16px, 4vw, 60px) 70px; }
+.svc-areas-inner{ max-width: 1200px; margin: 0 auto; }
+.svc-areas-head{ text-align: center; max-width: 720px; margin: 0 auto 38px; }
+.svc-areas-head h2{
+  font-family: var(--svc-font-display); font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 36px); color: var(--svc-dark); margin: 0 0 12px;
+}
+.svc-areas-head p:not(.svc-eyebrow){ font-size: 15.5px; line-height: 1.7; color: var(--svc-muted); font-weight: 600; margin: 0; }
+.svc-areas-grid{ display: grid; grid-template-columns: repeat(8, 1fr); gap: 16px; list-style: none; margin: 0; padding: 0; }
+.svc-areas-grid li{ list-style: none; grid-column: span 2; min-width: 0; }
+.svc-areas-grid li:nth-child(5){ grid-column: 2 / span 2; }
+.svc-area-card{
+  display: flex; align-items: center; gap: 14px; height: 100%;
+  background: #f5f6fa; border: 1.5px solid transparent; border-radius: 18px; padding: 16px 16px;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.svc-area-card:hover{ background: var(--svc-tint); border-color: var(--svc-blue); transform: translateY(-2px); }
+.svc-area-pin{
+  flex: none; width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--svc-tint); color: var(--svc-blue);
+}
+.svc-area-card strong{ display: block; font-family: var(--svc-font-display); font-size: 14.5px; font-weight: 700; color: var(--svc-dark); line-height: 1.35; }
+.svc-area-card small{ display: block; font-size: 12.5px; font-weight: 600; color: var(--svc-muted); margin-top: 2px; }
+.svc-area-go{ margin-left: auto; flex: none; color: var(--svc-blue); font-weight: 800; transition: transform .2s ease; }
+.svc-area-card:hover .svc-area-go{ transform: translateX(3px); }
+@media (max-width: 1000px){ .svc-areas-grid{ grid-template-columns: repeat(2, 1fr); } .svc-areas-grid li, .svc-areas-grid li:nth-child(5){ grid-column: auto; } .svc-areas-grid li:last-child{ grid-column: 1 / -1; } }
+@media (max-width: 560px){ .svc-areas{ padding: 56px 16px 50px; } .svc-areas-grid{ grid-template-columns: 1fr; } .svc-areas-grid li:last-child{ grid-column: auto; } }
